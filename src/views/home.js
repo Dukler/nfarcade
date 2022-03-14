@@ -5,6 +5,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 const styles = {
   background: {
      width: '100vw',
+     height:"750px",
   },
   logo: { width: '279', height: '109', minWidth:'279' },
   header: {
@@ -195,7 +196,8 @@ const HomeView = ({style}) => {
         <StaticImage src="../images/landscape-bg.png" layout="fixed" width="1200" height="750" />
       </div> */}
       {/* <StaticImage src="../images/landscape-bg.png" layout="fixed" height="750" width="1250" /> */}
-      <StaticImage src="../images/landscape-bg.png" layout="fixed" style={styles.background} />
+      <StaticImage src="../images/landscape-bg.jpg" layout="fullWidth" style={styles.background} />
+      {/* <StaticImage src="../images/landscape-bg.png" layout="fullWidth" height={750}/> */}
       <div style={styles.header}>
         <div style={styles.logo}>
           <StaticImage src="../images/nfa-logo 5.png" width={279} height={109} layout="fixed"/>

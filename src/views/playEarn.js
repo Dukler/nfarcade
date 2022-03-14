@@ -11,7 +11,7 @@ const PlayEarnView = ({ style }) => {
     return (
         <div style={style}>
             {/* <StaticImage src="../images/grid-bg.png" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background} width={1378} height={862}/> */}
-            <StaticImage src="../images/grid-bg.png" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background} />
+            <StaticImage src="../images/grid-bg.jpg" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background} height={862} />
             {/* <StaticImage src="../images/grid-bg.png" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background} /> */}
             <div style={styles.container}>
                 <div style={styles.content}>
@@ -32,10 +32,6 @@ const PlayEarnView = ({ style }) => {
                         id="roadmap" 
                         style={styles.roadmap}
                         vertical={false}
-                        // onClick={onMouseDown}
-                        // onMouseDown={onMouseDown}
-                        // onMouseUp={onMouseUp}
-                        // onMouseMove={onMouseMove}
                     >
                         <div style={styles.roadmapLine}></div>
                         <div style={styles.quarters}>

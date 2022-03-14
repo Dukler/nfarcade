@@ -4,6 +4,9 @@ import { StaticImage } from 'gatsby-plugin-image';
 import Accordion from "../components/Accordion";
 
 const styles = {
+    background:{
+        height: "750px"
+    },
     content:{
         display: "flex",
         flexDirection: "column",
@@ -99,6 +102,9 @@ const styles = {
         letterSpacing: "0.02em",
         textTransform: "uppercase",
         color: "#FFFFFF"
+    },
+    backContainer:{
+        height: "750px"
     }
 }
 
@@ -129,13 +135,14 @@ const FAQView = ({style}) => {
            2. Wait for the green light
            3. We launch your game
            4. You sit back & get paid`
-        }
+        },
+        
       ];
 
     return (
         <div style={style}>
-            <StaticImage src="../images/gradient-bg.png" layout="fixed" height="750" width="1200" />
-            
+            {/* <StaticImage src="../images/gradient-bg.png" layout="fixed" height="750" width="1200" /> */}
+            <StaticImage src="../images/gradient-bg.jpg" layout="fixed" style={styles.background} imgStyle={styles.backContainer}/>
             <div id="content" style={styles.content}>
                 <div style={styles.faq}>FAQ</div>
                 {accordionData.map(({ title, content }) => (

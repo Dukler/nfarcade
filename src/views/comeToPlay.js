@@ -3,6 +3,9 @@ import * as React from "react"
 import { StaticImage } from 'gatsby-plugin-image';
 
 const styles = {
+    background:{
+        height: "750px"
+    },
     content:{
         display: "flex",
         flexDirection: "column",
@@ -87,7 +90,8 @@ const styles = {
 const ComeToPlayView = ({style}) => {
     return (
         <div style={style}>
-            <StaticImage src="../images/landscape-bg.png" layout="fixed" height="750" width="1250" />
+            <StaticImage src="../images/landscape-bg.jpg" layout="fullWidth" style={styles.background} />
+            {/* <StaticImage src="../images/landscape-bg.png" layout="fixed" height="750" width="1250" /> */}
             <div style={styles.content}>
                 <div style={styles.title}>Where players come to play</div>
                 <div style={styles.subtitle}>Have fun, win tickets, & cash them in for NFTs</div>

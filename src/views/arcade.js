@@ -2,7 +2,9 @@ import * as React from "react"
 import { StaticImage } from 'gatsby-plugin-image';
 
 const styles={
-    background:{},
+    background:{
+        height: "750px"
+    },
     content:{
         position:"absolute",
         display:"flex",
@@ -114,6 +116,9 @@ const styles={
         alignItems: "center",
         textAlign: "center",
         color: "#DCF2FC"
+    },
+    back:{
+        height:"750px"
     }
 
 }
@@ -122,8 +127,8 @@ const ArcadeView = ({style}) =>{
 
     return(
         <div style={style}>
-            <StaticImage src="../images/gradient.svg" layout="fixed" width="1200" height="750" />
             {/* <StaticImage src="../images/gradient.svg" layout="fixed" width="1200" height="750" /> */}
+            <StaticImage src="../images/gradient-bg.jpg" layout="fixed" style={styles.background} imgStyle={styles.back}/>
             <div style={styles.content}>
                 <div style={styles.header}>
                     <div style={styles.title}>The Web3 Arcade is here</div>
