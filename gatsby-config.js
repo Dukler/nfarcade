@@ -17,11 +17,12 @@ module.exports = {
         // Defaults used for gatsbyImageData and StaticImage
         defaults: {
           quality: 85,
-          useMozJpeg: true,
+          
         },
         // Set to false to allow builds to continue on image errors
         failOnError: true,
-        stripMetadata: true
+        stripMetadata: true,
+        useMozJpeg: true,
       },
     },
   ]
