@@ -1,4 +1,4 @@
-import React, { useState , useRef } from 'react';
+import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import ScrollContainer from 'react-indiana-drag-scroll';
 

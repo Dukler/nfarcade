@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { Helmet } from 'react-helmet'
 import '../styles/global.css'
 import ArcadeView from "../views/arcade";
@@ -26,16 +26,18 @@ const styles = {
 // markup
 const IndexPage = () => {
   // const [isSSDisabled, setIsSSDisabled] = useState(true);
+  const [noBlock, setNoBlock] = useState(false);
 
   useEffect(()=>{
+    setNoBlock(true)
   },[])
 
   return (
     <>
-      <Helmet>
+      {noBlock ? <Helmet>
         <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet" media="screen"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" media="screen"/>
-      </Helmet>
+      </Helmet> : null}
       {/* <div style={styles.footer} onClick={onMouseDown} */}
       <div style={styles.main}>
         <HomeView style={styles.home}/>
