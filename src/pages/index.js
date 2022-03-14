@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useEffect } from "react"
 import { Helmet } from 'react-helmet'
 import '../styles/global.css'
 import ArcadeView from "../views/arcade";
@@ -29,7 +29,6 @@ const IndexPage = () => {
 
   useEffect(()=>{
   },[])
-  
 
   return (
     <>
@@ -37,6 +36,7 @@ const IndexPage = () => {
         <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet" media="screen"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" media="screen"/>
       </Helmet>
+      {/* <div style={styles.footer} onClick={onMouseDown} */}
       <div style={styles.main}>
         <HomeView style={styles.home}/>
         <ArcadeView style={styles.home}/>

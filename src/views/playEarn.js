@@ -1,13 +1,17 @@
-import * as React from "react"
+import React, { useState , useRef } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
+import ScrollContainer from 'react-indiana-drag-scroll';
 
 
 
 const PlayEarnView = ({ style }) => {
+    
+
+
     return (
         <div style={style}>
             {/* <StaticImage src="../images/grid-bg.png" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background} width={1378} height={862}/> */}
-            <StaticImage src="../images/grid-bg.png" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background}/>
+            <StaticImage src="../images/grid-bg.png" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background} />
             {/* <StaticImage src="../images/grid-bg.png" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background} /> */}
             <div style={styles.container}>
                 <div style={styles.content}>
@@ -24,7 +28,15 @@ const PlayEarnView = ({ style }) => {
                 <div style={styles.footer}>
                     <div style={styles.footerTitle}>ROADMAP</div>
                     <div style={styles.footerSubtitle}>HOW WE ARE BRINGING THE ARCADE TO THE METAVERSE</div>
-                    <div style={styles.roadmap}>
+                    <ScrollContainer
+                        id="roadmap" 
+                        style={styles.roadmap}
+                        vertical={false}
+                        // onClick={onMouseDown}
+                        // onMouseDown={onMouseDown}
+                        // onMouseUp={onMouseUp}
+                        // onMouseMove={onMouseMove}
+                    >
                         <div style={styles.roadmapLine}></div>
                         <div style={styles.quarters}>
                             <div style={styles.quarter}>
@@ -98,7 +110,7 @@ const PlayEarnView = ({ style }) => {
 
                         </div>
 
-                    </div>
+                    </ScrollContainer>
                 </div>
             </div>
         </div>
@@ -109,11 +121,11 @@ export default PlayEarnView
 
 
 const styles = {
-    backgroundContainer:{
-        width:"100vw",
-        display:"flex",
-        alignItems:"center",
-        justifyContent:"center"
+    backgroundContainer: {
+        width: "100vw",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
     },
     background: {
         top: "124px",
@@ -124,12 +136,12 @@ const styles = {
     devEarn: {
         left: "0px",
         top: "5px",
-        height:"422px"
+        height: "422px"
     },
     container: {
         position: "absolute",
         top: "120px",
-        height:"1103px", 
+        height: "1103px",
         // background: "#1E012B"
     },
     listText: {
@@ -255,7 +267,7 @@ const styles = {
         left: "0px",
         paddingTop: "166px",
         overflowX: "scroll",
-        overflowY:"hidden"
+        overflowY: "hidden"
     },
     roadmapLine: {
         // position: "absolute",
@@ -265,11 +277,11 @@ const styles = {
         top: "45px",
         border: "2px solid #DB38B9"
     },
-    circle: { 
-        position: "relative", 
-        width: "20px", 
-        height: "20px", 
-        left: "170px", 
+    circle: {
+        position: "relative",
+        width: "20px",
+        height: "20px",
+        left: "170px",
         // top: "32px",
         borderRadius: "50%"
     },
@@ -319,7 +331,7 @@ const styles = {
         // left: "34px",
         top: "-47px"
     },
-    currentStage:{
+    currentStage: {
         position: "relative",
         // width: "249px",
         height: "16px",
@@ -331,7 +343,7 @@ const styles = {
         fontWeight: 500,
         fontSize: "16px",
         lineHeight: "100%",
-        display:"inline-block",
+        display: "inline-block",
         // display: "flex",
         // alignItems: "center",
         // textAlign: "center",
@@ -339,7 +351,7 @@ const styles = {
         textTransform: "uppercase",
         color: "#50C5FB"
     },
-    q1Title:{
+    q1Title: {
         position: "relative",
         // width: "249px",
         height: "20px",
@@ -350,7 +362,7 @@ const styles = {
         fontWeight: 600,
         fontSize: "20px",
         lineHeight: "100%",
-        display:"inline-block",
+        display: "inline-block",
         // display: "flex",
         // alignItems: "center",
         // textAlign: "center",
@@ -358,9 +370,9 @@ const styles = {
         textTransform: "uppercase",
         color: "#FFFFFF"
     },
-    q1Description:{
+    q1Description: {
         position: "relative",
-        display:"inline-block",
+        display: "inline-block",
         // width: "340px",
         height: "32px",
         left: "55px",
@@ -373,12 +385,12 @@ const styles = {
         textAlign: "center",
         color: "#DCF2FC"
     },
-    quarters:{
-        display:"flex",
-        width:"1489px"
+    quarters: {
+        display: "flex",
+        width: "1489px"
     },
-    quarterText:{
-        position:"relative",
-        left:"40px"
+    quarterText: {
+        position: "relative",
+        left: "40px"
     }
 }
