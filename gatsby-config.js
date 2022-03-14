@@ -3,7 +3,7 @@ module.exports = {
       title: `new`,
     siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: ["gatsby-plugin-styled-components", "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
+  plugins: ["gatsby-plugin-styled-components", "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sharp", "gatsby-transformer-sharp","gatsby-plugin-web-font-loader", {
       resolve: 'gatsby-source-filesystem',
       options: {
         "name": "images",
@@ -23,6 +23,14 @@ module.exports = {
         failOnError: true,
         stripMetadata: true,
         useMozJpeg: true,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        google: {
+          families: ['Teko', 'Roboto']
+        }
       },
     },
   ]

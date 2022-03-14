@@ -34,10 +34,10 @@ const IndexPage = () => {
 
   return (
     <>
-      {noBlock ? <Helmet>
+      {/* {noBlock ? <Helmet>
         <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet" media="screen"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" media="screen"/>
-      </Helmet> : null}
+      </Helmet> : null} */}
       {/* <div style={styles.footer} onClick={onMouseDown} */}
       <div style={styles.main}>
         <HomeView style={styles.home}/>
