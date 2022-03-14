@@ -201,7 +201,7 @@ const HomeView = ({style}) => {
           <StaticImage src="../images/nfa-logo 5.png" width={279} height={109} layout="fixed"/>
         </div>
         <div style={styles.links}>
-          <button style={styles.playButton}><text style={styles.playText}>Play</text></button>
+          <button style={styles.playButton}><div style={styles.playText}>Play</div></button>
           <div style={styles.discord}>
             <StaticImage src="../images/discord.svg" width="24" height="24" />
           </div>
@@ -213,7 +213,7 @@ const HomeView = ({style}) => {
       <div style={styles.contentContainer}>
           <div style={styles.contentTitle}>Reinventing the arcade experience</div>
           <div style={styles.contentText}>For the metaverse</div>
-          <button style={styles.startPlayingButton}><text style={styles.startPlayingText}>Start playing</text></button>
+          <button style={styles.startPlayingButton}><div style={styles.startPlayingText}>Start playing</div></button>
       </div>
     </div>
   )
