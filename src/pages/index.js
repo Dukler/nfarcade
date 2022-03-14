@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useState, useEffect } from "react"
 import { Helmet } from 'react-helmet'
 import '../styles/global.css'
 import ArcadeView from "../views/arcade";
@@ -25,11 +25,19 @@ const styles = {
 
 // markup
 const IndexPage = () => {
+
+  const [isSSDisabled, setIsSSDisabled] = useState(true);
+
+  useEffect(()=>{
+    setIsSSDisabled(false);
+  },[])
+  
+
   return (
     <>
       <Helmet>
-        <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet" disabled={isSSDisabled}/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" disabled={isSSDisabled}/>
       </Helmet>
       <div style={styles.main}>
         <HomeView style={styles.home}/>

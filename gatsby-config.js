@@ -16,7 +16,7 @@ module.exports = {
       options: {
         // Defaults used for gatsbyImageData and StaticImage
         defaults: {
-          quality: 100,
+          quality: 75,
         },
         // Set to false to allow builds to continue on image errors
         failOnError: true,
