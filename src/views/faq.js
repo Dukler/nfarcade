@@ -134,7 +134,7 @@ const FAQView = ({style}) => {
 
     return (
         <div style={style}>
-            <StaticImage src="../images/gradient-bg.png" layout="fixed" height="750" width="1250" />
+            <StaticImage src="../images/gradient-bg.png" layout="fixed" height="750" width="1200" />
             
             <div id="content" style={styles.content}>
                 <div style={styles.faq}>FAQ</div>

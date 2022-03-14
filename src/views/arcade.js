@@ -123,6 +123,7 @@ const ArcadeView = ({style}) =>{
     return(
         <div style={style}>
             <StaticImage src="../images/gradient.svg" layout="fixed" width="1200" height="750" />
+            {/* <StaticImage src="../images/gradient.svg" layout="fixed" width="1200" height="750" /> */}
             <div style={styles.content}>
                 <div style={styles.header}>
                     <div style={styles.title}>The Web3 Arcade is here</div>

@@ -1,6 +1,113 @@
 import * as React from "react"
 import { StaticImage } from 'gatsby-plugin-image';
 
+
+
+const PlayEarnView = ({ style }) => {
+    return (
+        <div style={style}>
+            {/* <StaticImage src="../images/grid-bg.png" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background} width={1378} height={862}/> */}
+            <StaticImage src="../images/grid-bg.png" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background}/>
+            {/* <StaticImage src="../images/grid-bg.png" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background} /> */}
+            <div style={styles.container}>
+                <div style={styles.content}>
+                    <div>
+                        <div style={styles.title}>Play & earn meets dev & earn</div>
+                        <div style={styles.subtitle}>The better you play, the better your earnings</div>
+                        <div style={styles.listText}>1. Submit your game.</div>
+                        <div style={styles.listText}>2. We host it.</div>
+                        <div style={styles.listText}>3. You get paid.</div>
+                    </div>
+                    <StaticImage src="../images/dev-2-earn.png" layout="fixed" style={styles.devEarn} width={498} height={422} />
+                    {/* <StaticImage src="../images/dev-2-earn.png" layout="fixed" height={422} /> */}
+                </div>
+                <div style={styles.footer}>
+                    <div style={styles.footerTitle}>ROADMAP</div>
+                    <div style={styles.footerSubtitle}>HOW WE ARE BRINGING THE ARCADE TO THE METAVERSE</div>
+                    <div style={styles.roadmap}>
+                        <div style={styles.roadmapLine}></div>
+                        <div style={styles.quarters}>
+                            <div style={styles.quarter}>
+                                <div style={styles.currentStage}>
+                                    CURRENT STAGE
+                                </div>
+                                <div style={styles.circle}>
+                                    <div style={styles.elipseCurrent}></div>
+                                    <div style={styles.elipseWhite}></div>
+                                </div>
+                                <div style={styles.q1Title}>
+                                    Q1 2022
+                                </div>
+                                <div style={styles.quarterText}>
+                                    <div style={styles.q1Description}>
+                                        Beta testing launched.
+                                    </div>
+                                </div>
+                            </div>
+                            <div style={styles.quarter}>
+                                <div style={styles.currentStage}></div>
+                                <div style={styles.circle}>
+                                    <div style={styles.elipseInner}></div>
+                                    <div style={styles.elipseWhite}></div>
+                                </div>
+                                <div style={styles.q1Title}>
+                                    Q2 2022
+                                </div>
+                                <div style={styles.quarterText}>
+                                    <div style={styles.q1Description}>
+                                        First NFA game title launch.
+                                    </div>
+                                </div>
+                            </div>
+                            <div style={styles.quarter}>
+                                <div style={styles.currentStage}></div>
+                                <div style={styles.circle}>
+                                    <div style={styles.elipseInner}></div>
+                                    <div style={styles.elipseWhite}></div>
+                                </div>
+                                <div style={styles.q1Title}>
+                                    Q3 2022
+                                </div>
+                                <div style={styles.quarterText}>
+                                    <div style={styles.q1Description}>
+                                        Second NFA game title launch.
+                                    </div>
+                                    <div style={styles.q1Description}>
+                                        Developer applications open.
+                                    </div>
+                                </div>
+                            </div>
+                            <div style={styles.quarter}>
+                                <div style={styles.currentStage}></div>
+                                <div style={styles.circle}>
+                                    <div style={styles.elipseInner}></div>
+                                    <div style={styles.elipseWhite}></div>
+                                </div>
+                                <div style={styles.q1Title}>
+                                    Q4 2022
+                                </div>
+                                <div style={styles.quarterText}>
+                                    <div style={styles.q1Description}>
+                                        Third NFA game title launch.
+                                    </div>
+                                    <div style={styles.q1Description}>
+                                        NFA First Annual Tournament.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default PlayEarnView
+
+
 const styles = {
     backgroundContainer:{
         width:"100vw",
@@ -142,7 +249,8 @@ const styles = {
     roadmap: {
         // position: "absolute",
         // display:"flex",
-        width: "1200px",
+        // width: "1200px",
+        width: "80%",
         height: "210px",
         left: "0px",
         paddingTop: "166px",
@@ -274,107 +382,3 @@ const styles = {
         left:"40px"
     }
 }
-
-const PlayEarnView = ({ style }) => {
-    return (
-        <div style={style}>
-            {/* <StaticImage src="../images/grid-bg.png" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background} width={1378} height={862}/> */}
-            <StaticImage src="../images/grid-bg.png" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background}/>
-            {/* <StaticImage src="../images/grid-bg.png" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background} /> */}
-            <div style={styles.container}>
-                <div style={styles.content}>
-                    <div>
-                        <div style={styles.title}>Play & earn meets dev & earn</div>
-                        <div style={styles.subtitle}>The better you play, the better your earnings</div>
-                        <div style={styles.listText}>1. Submit your game.</div>
-                        <div style={styles.listText}>2. We host it.</div>
-                        <div style={styles.listText}>3. You get paid.</div>
-                    </div>
-                    <StaticImage src="../images/dev-2-earn.png" layout="fixed" style={styles.devEarn} width={498} height={422} />
-                    {/* <StaticImage src="../images/dev-2-earn.png" layout="fixed" height={422} /> */}
-                </div>
-                <div style={styles.footer}>
-                    <div style={styles.footerTitle}>ROADMAP</div>
-                    <div style={styles.footerSubtitle}>HOW WE ARE BRINGING THE ARCADE TO THE METAVERSE</div>
-                    <div style={styles.roadmap}>
-                        <div style={styles.roadmapLine}></div>
-                        <div style={styles.quarters}>
-                            <div style={styles.quarter}>
-                                <div style={styles.currentStage}>
-                                    CURRENT STAGE
-                                </div>
-                                <div style={styles.circle}>
-                                    <div style={styles.elipseCurrent}></div>
-                                    <div style={styles.elipseWhite}></div>
-                                </div>
-                                <div style={styles.q1Title}>
-                                    Q1 2022
-                                </div>
-                                <div style={styles.quarterText}>
-                                    <div style={styles.q1Description}>
-                                        Beta testing launched.
-                                    </div>
-                                </div>
-                            </div>
-                            <div style={styles.quarter}>
-                                <div style={styles.currentStage}></div>
-                                <div style={styles.circle}>
-                                    <div style={styles.elipseInner}></div>
-                                    <div style={styles.elipseWhite}></div>
-                                </div>
-                                <div style={styles.q1Title}>
-                                    Q2 2022
-                                </div>
-                                <div style={styles.quarterText}>
-                                    <div style={styles.q1Description}>
-                                        First NFA game title launch.
-                                    </div>
-                                </div>
-                            </div>
-                            <div style={styles.quarter}>
-                                <div style={styles.currentStage}></div>
-                                <div style={styles.circle}>
-                                    <div style={styles.elipseInner}></div>
-                                    <div style={styles.elipseWhite}></div>
-                                </div>
-                                <div style={styles.q1Title}>
-                                    Q3 2022
-                                </div>
-                                <div style={styles.quarterText}>
-                                    <div style={styles.q1Description}>
-                                        Second NFA game title launch.
-                                    </div>
-                                    <div style={styles.q1Description}>
-                                        Developer applications open.
-                                    </div>
-                                </div>
-                            </div>
-                            <div style={styles.quarter}>
-                                <div style={styles.currentStage}></div>
-                                <div style={styles.circle}>
-                                    <div style={styles.elipseInner}></div>
-                                    <div style={styles.elipseWhite}></div>
-                                </div>
-                                <div style={styles.q1Title}>
-                                    Q4 2022
-                                </div>
-                                <div style={styles.quarterText}>
-                                    <div style={styles.q1Description}>
-                                        Third NFA game title launch.
-                                    </div>
-                                    <div style={styles.q1Description}>
-                                        NFA First Annual Tournament.
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-export default PlayEarnView
