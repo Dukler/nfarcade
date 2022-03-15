@@ -1,12 +1,15 @@
 import * as React from "react"
 import { StaticImage } from 'gatsby-plugin-image';
+import useJSS from "../components/useJSS";
+import LandscapeBackground from "../components/LandscapeBackground";
 
 // styles
-const styles = {
+const stylesDesktop = {
   background: {
      width: '100vw',
      height:"750px",
   },
+  backgroundImg:{width:"100vw", height:"750px"},
   logo: { width: '279', height: '109', minWidth:'279' },
   header: {
     display: "flex",
@@ -185,23 +188,56 @@ const styles = {
     margin: "0px 16px"
   }
 }
+const stylesMobile = {
+  contentTitle:{
+    fontSize: "36px",
+    width:"250px",
+    height:"64px"
+  },
+  contentText:{
+    fontSize: "24px",
+    width:"150px",
+    height:"24px"
+  },
+  startPlayingButton:{
+    width:"133px"
+  },
+  header:{
+    justifyContent:"center",
+    left:"",
+    top:"0px",
+    width:"100%"
+  },
+  background:{
+    // width:"400px"
+    height:"474px"
+  },
+  backgroundImg:{
+    // width:"400px"
+    height:"474px"
+  },
+  contentContainer:{
+    top:"150px",
+    position:"absolute",
+    height:"202px"
+  }
+}
 
-// markup
-const HomeView = ({style}) => {
+
+const HomeView = ({style,isMobile}) => {
+  const styles = useJSS({stylesDesktop,stylesMobile,isMobile});
   
   return (
 
     <div style={style}>
-      {/* <div style={styles.background}>
-        <StaticImage src="../images/landscape-bg.png" layout="fixed" width="1200" height="750" />
-      </div> */}
-      {/* <StaticImage src="../images/landscape-bg.png" layout="fixed" height="750" width="1250" /> */}
-      <StaticImage src="../images/landscape-bg.jpg" layout="fullWidth" style={styles.background} />
-      {/* <StaticImage src="../images/landscape-bg.png" layout="fullWidth" height={750}/> */}
+      {/* <StaticImage src="../images/landscape-bg.jpg" layout={isMobile ? "constrained" : "fullWidth"} style={styles.background} /> */}
+      {/* <StaticImage src="../images/landscape-bg.jpg" layout="constrained" objectFit="fill" style={styles.background} imgStyle={styles.backgroundImg} /> */}
+      <LandscapeBackground/>
       <div style={styles.header}>
         <div style={styles.logo}>
-          <StaticImage src="../images/nfa-logo 5.png" width={279} height={109} layout="fixed"/>
+          <StaticImage src="../images/nfa-logo 5.png" layout="fixed" styles={styles}/>
         </div>
+        {isMobile ? null :
         <div style={styles.links}>
           <button style={styles.playButton}><div style={styles.playText}>Play</div></button>
           <div style={styles.discord}>
@@ -210,7 +246,7 @@ const HomeView = ({style}) => {
           <div style={styles.twitter}>
             <StaticImage src="../images/twitter.svg" width="24" height="24" />
           </div>
-        </div>
+        </div>}
       </div>
       <div style={styles.contentContainer}>
           <div style={styles.contentTitle}>Reinventing the arcade experience</div>

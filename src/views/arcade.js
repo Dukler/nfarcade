@@ -1,17 +1,19 @@
 import * as React from "react"
 import { StaticImage } from 'gatsby-plugin-image';
+import useJSS from "../components/useJSS";
+import GradientBackground from "../components/GradientBackground";
 
-const styles={
+const stylesDesktop =  {
     background:{
-        height: "750px"
+        height: "100%"
     },
     content:{
         position:"absolute",
         display:"flex",
         alignItems:"center",
-        justifyContent:"center",
+        // justifyContent:"space-between",
         flexDirection:"column",
-        flexWrap:"wrap",
+        // flexWrap:"wrap",
         width: "100vw",
         height: "487px",
         // left: "10%",
@@ -80,7 +82,7 @@ const styles={
         justifyContent:"space-around",
         height:"180px",
         width:"70%",
-        paddingTop:"100px",
+        paddingTop:"160px",
     },
     iconText:{
         // position: "absolute",
@@ -102,11 +104,11 @@ const styles={
     },
     footerText:{
         // position: "relative",
-        width: "720px",
-        height: "56px",
+        width: "760px",
+        height: "200px",
         // left: "0px",
         // top: "431px",
-        paddingTop:"70px",
+        paddingTop:"150px",
         fontFamily: "'Roboto'",
         fontStyle: "normal",
         fontWeight: 500,
@@ -117,33 +119,64 @@ const styles={
         textAlign: "center",
         color: "#DCF2FC"
     },
-    back:{
-        height:"750px"
-    }
+    
 
 }
+const stylesMobile = {
+    title:{
+        fontSize: "36px",
+    },
+    background:{
+        height:"1041px"
+    },
+    backgroundImg:{
+        height:"1041px"
+    },
+    icons:{
+        flexDirection:"column",
+        height:"600px",
+        width:"100%",
+        paddingTop:"0px",
+        alignItems:"center",
+        justifyContent:"space-around",
+        // width:"100%"
+    },
+    content:{
+        top:"100px",
+        height:"1041px",
+        justifyContent:"center"
+    },
+    footerText:{
+        fontSize: "12px",
+        width: "280px",
+        height: "200px",
+        paddingTop:"0px"
+    }
+}
 
-const ArcadeView = ({style}) =>{
-
+const ArcadeView = ({style, isMobile}) =>{
+    const styles = useJSS({stylesDesktop,stylesMobile,isMobile});
     return(
         <div style={style}>
-            {/* <StaticImage src="../images/gradient.svg" layout="fixed" width="1200" height="750" /> */}
-            <StaticImage src="../images/gradient-bg.jpg" layout="fixed" style={styles.background} imgStyle={styles.back}/>
-            <div style={styles.content}>
+            {/* <StaticImage src="../images/gradient-bg.jpg" layout="fixed" style={styles.background} imgStyle={styles.back}/> */}
+            {/* <StaticImage src="../images/gradient-bg.jpg" layout="constrained" objectFit="fill" style={styles.background} imgStyle={styles.backgroundContainer} /> */}
+            <GradientBackground isMobile={isMobile} styles={styles}/>
+            <div id ="arcadeContent" style={styles.content}>
                 <div style={styles.header}>
                     <div style={styles.title}>The Web3 Arcade is here</div>
                     <div style={styles.subTitle}>Play fun arcade games & earn tickets</div>
                 </div>
-                <div style={styles.icons}>
-                    <div style={styles.arcade}>
+                <div id="arcadeIcons" style={styles.icons}>
+                    <div style={styles.icon}>
                         <StaticImage src="../images/arcade.svg" layout="fixed" width={140} height={155} />
+                        {/* <ResponsiveImage src="../images/arcade.svg" attributes={[{layout:"fixed",width:140,height:155},{layout:"fixed",width:128,height:150}]}  /> */}
                         <div style={styles.iconText}>Play games</div>
                     </div>
-                    <div style={styles.ticket}>
+                    <div style={styles.icon}>
                         <StaticImage src="../images/ticket.svg" layout="fixed" width={140} height={155} />
                         <div style={styles.iconText}>Earn tickets</div>
                     </div>
-                    <div style={styles.prize}>
+                    <div style={styles.icon}>
                         <StaticImage src="../images/prize.svg" layout="fixed" width={140} height={155} />
                         <div style={styles.iconText}>Redeem for nfts</div>
                     </div>

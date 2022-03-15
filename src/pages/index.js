@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Helmet } from 'react-helmet'
+import useIsMobile from "../components/useIsMobile";
+import useJSS from "../components/useJSS";
 import '../styles/global.css'
 import ArcadeView from "../views/arcade";
 import ComeToPlayView from "../views/comeToPlay";
@@ -8,7 +10,7 @@ import FooterView from "../views/footer";
 import HomeView from "../views/home";
 import PlayEarnView from "../views/playEarn";
 
-const styles = {
+const stylesDesktop = {
   main:{
     // display:"flex",
     // flexDirection:"column",
@@ -19,14 +21,22 @@ const styles = {
     // height:"3500px"
   },
   home:{height:"750px",position:"relative"},
+  arcade:{height:"750px",position:"relative"},
   playEarn:{height:"1103px",position:"relative", background: "#1E012B"},
   footer:{height:"400px",position:"relative", background: "#150021", display:"flex", justifyContent:"center", alignItems:"center" },
+}
+const stylesMobile={
+  home:{height:"473px"},
+  arcade:{height: "1041px"},
+  playEarn:{height:"1044px", width:"375px"}
 }
 
 // markup
 const IndexPage = () => {
   // const [isSSDisabled, setIsSSDisabled] = useState(true);
   const [noBlock, setNoBlock] = useState(false);
+  const isMobile = useIsMobile();
+  const styles = useJSS({stylesDesktop,stylesMobile,isMobile});
 
   useEffect(()=>{
     setNoBlock(true)
@@ -40,12 +50,12 @@ const IndexPage = () => {
       </Helmet> : null} */}
       {/* <div style={styles.footer} onClick={onMouseDown} */}
       <div style={styles.main}>
-        <HomeView style={styles.home}/>
-        <ArcadeView style={styles.home}/>
-        <ComeToPlayView style={styles.home}/>
-        <PlayEarnView style={styles.playEarn}/>
-        <FAQView style={styles.home}/>
-        <FooterView style={styles.footer}/>
+        <HomeView style={styles.home} isMobile={isMobile}/>
+        <ArcadeView style={styles.arcade} isMobile={isMobile}/>
+        <ComeToPlayView style={styles.home} isMobile={isMobile}/>
+        <PlayEarnView style={styles.playEarn} isMobile={isMobile}/>
+        <FAQView style={styles.home} isMobile={isMobile}/>
+        <FooterView style={styles.footer} isMobile={isMobile}/>
       </div>
     </>
   )

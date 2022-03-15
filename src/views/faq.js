@@ -112,29 +112,23 @@ const FAQView = ({style}) => {
     const accordionData = [
         {
           title: 'How does Non Fungible Arcade work?',
-          content: `The easiest way to explain the Non Fungible Arcade is that it operates the same way a 
-          traditional arcade works, but in the metaverse! Arcade machines take tokens, then you earn tickets, 
-          and you use tickets to claim limited NFTs from the prize counter!`
+          content: `The easiest way to explain the Non Fungible Arcade is that it operates the same way a traditional arcade works, but in the metaverse! Arcade machines take tokens, then you earn tickets, and you use tickets to claim limited NFTs from the prize counter!`
         },
         {
           title: 'What’s play & earn?',
-          content: `Play & earn is an ecosystem that focuses on having fun playing & earning while doing so. 
-          Players inside of Non Fungible Arcade will earn tickets that they can use to claim limited NFTs from 
-          the prize counter that have…utility.`
+          content: `Play & earn is an ecosystem that focuses on having fun playing & earning while doing so. Players inside of Non Fungible Arcade will earn tickets that they can use to claim limited NFTs from the prize counter that have…utility.`
         },
         {
           title: 'What’s dev & earn?',
-          content: `Dev & earn is a new concept that allows game developers to submit a game to us, we host it in the arcade, 
-          and pay the developer 100% of their earnings from their game.`
+          content: `Dev & earn is a new concept that allows game developers to submit a game to us, we host it in the arcade, and pay the developer 100% of their earnings from their game.`
         },
         {
           title: 'How do I submit my game?',
           content: `If you are a game developer who would like to submit a project to be placed in the arcade, please follow these steps! :)
-
-          Fill out this form
-           2. Wait for the green light
-           3. We launch your game
-           4. You sit back & get paid`
+1. Fill out this form
+2. Wait for the green light
+3. We launch your game
+4. You sit back & get paid`
         },
         
       ];
@@ -146,7 +140,7 @@ const FAQView = ({style}) => {
             <div id="content" style={styles.content}>
                 <div style={styles.faq}>FAQ</div>
                 {accordionData.map(({ title, content }) => (
-                    <Accordion title={title} content={content} />
+                    <Accordion title={title} content={content}  />
                 ))}
             </div>
             

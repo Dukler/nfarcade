@@ -1,8 +1,10 @@
 
 import * as React from "react"
 import { StaticImage } from 'gatsby-plugin-image';
+import LandscapeBackground from "../components/LandscapeBackground";
+import useJSS from "../components/useJSS";
 
-const styles = {
+const stylesDesktop = {
     background:{
         height: "750px"
     },
@@ -83,21 +85,47 @@ const styles = {
     },
     prize:{
         position:"absolute",
-        top:"238px"
+        top:"240px",
+        // bottom:"10px",
+        height:"429px",
+        width:"941px"
+    }
+}
+const stylesMobile = {
+    prize:{
+        width:"345px",
+        top:"264px"
+    },
+    title:{
+        fontSize:"30px",
+        width:"150px"
+    },
+    subtitle:{
+        fontSize:"20px",
+        width:"174px"
+    },
+    contentText:{
+        fontSize:"12px"
+    },
+    content:{
+        top:"50px"
     }
 }
 
-const ComeToPlayView = ({style}) => {
+const ComeToPlayView = ({isMobile, style}) => {
+
+    const styles = useJSS({stylesDesktop,stylesMobile,isMobile});
+
     return (
         <div style={style}>
-            <StaticImage src="../images/landscape-bg.jpg" layout="fullWidth" style={styles.background} />
-            {/* <StaticImage src="../images/landscape-bg.png" layout="fixed" height="750" width="1250" /> */}
+            
+            <LandscapeBackground/>
             <div style={styles.content}>
                 <div style={styles.title}>Where players come to play</div>
                 <div style={styles.subtitle}>Have fun, win tickets, & cash them in for NFTs</div>
                 <div style={styles.contentText}>Have fun, win tickets, & cash them in for NFTs!</div>
                 <div style={styles.prize}>
-                    <StaticImage src="../images/Prize Wall 1.png" layout="fixed" height={429} width={941} />
+                    <StaticImage src="../images/Prize Wall 1.png" layout="fullWidth" />
                 </div>
             </div>
             

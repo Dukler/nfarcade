@@ -55,6 +55,7 @@ const styles = {
         // position: "absolute",
         width: "874px",
         // height: "66px",
+        whiteSpace: "pre-wrap",
         left: "30px",
         top: "68px",
         fontFamily: "'Roboto'",
