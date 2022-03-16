@@ -59,6 +59,10 @@ const styles = {
 }
 
 const FooterView = ({style}) => {
+    const faq = document.getElementById("faqView");
+    const playEarn= document.getElementById("playEarnView");
+    const home = document.getElementById("home");
+
 
     return (
         <div style={style}>
@@ -66,13 +70,16 @@ const FooterView = ({style}) => {
             <div  style={styles.content}>
                 <StaticImage src="../images/nfa-logo 5.png" width={279} height={109} layout="fixed"/>
                 <div style={styles.links}>
-                    <div style={styles.linkText}>FAQ</div>
-                    <div style={styles.linkText}>ROADMAP</div>
-                    <div style={styles.linkText}>PLAY</div>
+                    <div style={styles.linkText} onClick={()=>faq.scrollIntoView()}>FAQ</div>
+                    <div style={styles.linkText} onClick={()=>playEarn.scrollIntoView()}>ROADMAP</div>
+                    <div style={styles.linkText} onClick={()=>home.scrollIntoView()}>PLAY</div>
                 </div>
                 <div style={styles.socials}>
+                    
                     <StaticImage src="../images/discord-purple.png" layout="fixed"/>
-                    <StaticImage src="../images/twitter-purple.png" layout="fixed"/>
+                    <a href="https://twitter.com/NFArcade" target="_blank">
+                        <StaticImage src="../images/twitter-purple.png" layout="fixed"/>
+                    </a>
                 </div>
                 <div style={styles.copyright}>Copyright © 2022 NonFungible Arcade. All Rights Reserved.</div>
             </div>

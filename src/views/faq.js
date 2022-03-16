@@ -2,8 +2,9 @@
 import * as React from "react"
 import { StaticImage } from 'gatsby-plugin-image';
 import Accordion from "../components/Accordion";
+import useJSS from "../components/useJSS";
 
-const styles = {
+const stylesDesktop = {
     background:{
         height: "750px"
     },
@@ -107,8 +108,20 @@ const styles = {
         height: "750px"
     }
 }
+const stylesMobile ={
+    faq:{
+        width:"280px",
+        fontSize:"30px",
+        textAlign:"center"
+    },
+    content:{
+        height:"750px"
+    }
+}
 
-const FAQView = ({style}) => {
+const FAQView = ({style, isMobile}) => {
+    const [isOpen, setIsOpen] = React.useState([]);
+    const styles = useJSS({stylesDesktop,stylesMobile,isMobile});
     const accordionData = [
         {
           title: 'How does Non Fungible Arcade work?',
@@ -134,14 +147,15 @@ const FAQView = ({style}) => {
       ];
 
     return (
-        <div style={style}>
+        <div id="faqView" style={style}>
             {/* <StaticImage src="../images/gradient-bg.png" layout="fixed" height="750" width="1200" /> */}
             <StaticImage src="../images/gradient-bg.jpg" layout="fixed" style={styles.background} imgStyle={styles.backContainer}/>
             <div id="content" style={styles.content}>
                 <div style={styles.faq}>FAQ</div>
-                {accordionData.map(({ title, content }) => (
-                    <Accordion title={title} content={content}  />
-                ))}
+                <Accordion isMobile={isMobile} data={accordionData}/>
+                {/* {accordionData.map(({ title, content }, index) => (
+                    <Accordion title={title} content={content} isMobile={isMobile} isOpen={isOpen} setIsOpen={setIsOpen}  index={index}/>
+                ))} */}
             </div>
             
         </div>

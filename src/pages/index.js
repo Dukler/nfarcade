@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { Helmet } from 'react-helmet'
 import useIsMobile from "../components/useIsMobile";
 import useJSS from "../components/useJSS";
@@ -21,6 +21,7 @@ const stylesDesktop = {
     // height:"3500px"
   },
   home:{height:"750px",position:"relative"},
+  faq:{height:"750px",position:"relative"},
   arcade:{height:"750px",position:"relative"},
   playEarn:{height:"1103px",position:"relative", background: "#1E012B"},
   footer:{height:"400px",position:"relative", background: "#150021", display:"flex", justifyContent:"center", alignItems:"center" },
@@ -28,19 +29,19 @@ const stylesDesktop = {
 const stylesMobile={
   home:{height:"473px"},
   arcade:{height: "1041px"},
-  playEarn:{height:"1044px", width:"375px"}
+  playEarn:{height:"1044px"}
 }
 
 // markup
 const IndexPage = () => {
   // const [isSSDisabled, setIsSSDisabled] = useState(true);
-  const [noBlock, setNoBlock] = useState(false);
   const isMobile = useIsMobile();
   const styles = useJSS({stylesDesktop,stylesMobile,isMobile});
 
+
   useEffect(()=>{
-    setNoBlock(true)
-  },[])
+    
+  },[isMobile])
 
   return (
     <>
@@ -54,7 +55,7 @@ const IndexPage = () => {
         <ArcadeView style={styles.arcade} isMobile={isMobile}/>
         <ComeToPlayView style={styles.home} isMobile={isMobile}/>
         <PlayEarnView style={styles.playEarn} isMobile={isMobile}/>
-        <FAQView style={styles.home} isMobile={isMobile}/>
+        <FAQView style={styles.faq} isMobile={isMobile}/>
         <FooterView style={styles.footer} isMobile={isMobile}/>
       </div>
     </>

@@ -29,6 +29,7 @@ const LandscapeBackground = () => {
         <StaticImage src="../images/landscape-bg.jpg" layout="constrained" 
             style={{height:"100%"}}
             objectFit="fill"
+            
         />
     )
   }

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
+import useJSS from './useJSS';
 
-const styles = {
-    border:{
+const stylesDesktop = {
+    border: {
         // position: "absolute",
         width: "940px",
         // height: "179px",
@@ -11,27 +12,27 @@ const styles = {
         border: "2px solid #DB38B9",
         // boxSizing: "border-box",
         borderRadius: "8px",
-        paddingLeft:"20px",
-        margin:"15px",
+        paddingLeft: "20px",
+        margin: "15px",
     },
-    arrowhead:{
+    arrowhead: {
         position: "relative",
-        right:"0px",
-        top:"0px"
+        right: "0px",
+        top: "0px"
     },
-    header:{
-        display:"flex",
-        flexDirection:"row",
-        width:"95%",
+    header: {
+        display: "flex",
+        flexDirection: "row",
+        width: "95%",
         top: "30px",
-        height:"50px",
+        height: "50px",
         userSelect: "none",
-        justifyContent:"space-between",
+        justifyContent: "space-between",
         alignItems: "center",
     },
-    title:{
+    title: {
         left: "30px",
-        
+
         fontFamily: "'Teko'",
         fontStyle: "normal",
         fontWeight: 500,
@@ -43,15 +44,15 @@ const styles = {
         textTransform: "uppercase",
         color: "#50C5FB"
     },
-    arrowhead:{
+    arrowhead: {
         color: "#FFFFFF",
         // transform: "rotate(180deg)"
     },
-    arrowheadDown:{
+    arrowheadDown: {
         color: "#FFFFFF",
         transform: "rotate(180deg)"
     },
-    content:{
+    content: {
         // position: "absolute",
         width: "874px",
         // height: "66px",
@@ -66,22 +67,51 @@ const styles = {
         color: "#DCF2FC"
     }
 }
+const stylesMobile = {
+    border: {
+        width: "290px"
+    },
+    content: {
+        width: "250px",
+        fontSize: "12px"
+    },
+    title: {
+        fontSize: "18px"
+    }
+}
 
-const Accordion = ({ title, content }) => {
-  const [isActive, setIsActive] = useState(false);
+const Accordion = ({ isMobile, data }) => {
+    const [isActive, setIsActive] = useState([]);
+    const styles = useJSS({ stylesDesktop, stylesMobile, isMobile });
 
-  return (
-    <div style={styles.border}>
-      <div style={styles.header} onClick={() => setIsActive(!isActive)}>
+    const toggleActive = (index) => {
+        let auxActive = [...isActive];
+        auxActive[index] = !auxActive[index];
+        data.forEach((element, i) => {
+            if (index !== i) auxActive[i] = false
+        });
+        setIsActive(auxActive)
+    }
+    
+    useLayoutEffect(()=>{
+        let auxActive = []
+        data.forEach((element, index) => {
+            auxActive[index] = false;
+        });
+        setIsActive(auxActive)
+    },[])
+
+    return (data.map(({ title, content }, index) => (
+        <div style={styles.border}>
+        <div style={styles.header} onClick={() => toggleActive(index)}>
             <div style={styles.title}>{title}</div>
-            <div style={isActive ? styles.arrowhead : styles.arrowheadDown}>
-                <StaticImage src="../images/arrowhead.png" layout="fixed"  />
+            <div style={isActive[index] ? styles.arrowhead : styles.arrowheadDown}>
+                <StaticImage src="../images/arrowhead.png" layout="fixed" />
                 {/* {isActive ? '⌄' : '⌃'} */}
             </div>
-      </div>
-      {isActive && <div style={styles.content}>{content}</div>}
-    </div>
-  );
+        </div>
+        {isActive[index] && <div style={styles.content}>{content}</div>}
+    </div>)))
 };
 
 export default Accordion;

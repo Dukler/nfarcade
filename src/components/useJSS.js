@@ -1,11 +1,19 @@
-import React, {useEffect, useState} from "react";
+import React, {useLayoutEffect, useState} from "react";
 
 const useJSS = ({isMobile, stylesDesktop, stylesMobile}) => {
-    const mobile = isMobile ? {...stylesMobile} : {}
-    let styles = stylesDesktop;
-    Object.keys(stylesMobile).forEach(key=>{
-        styles = {...styles,[key]:{...stylesDesktop[key], ...mobile[key]}}
-    })
+    const [styles, setStyles] = useState(stylesDesktop);
+    const mobile = isMobile ? {...stylesMobile} : {};
+    const refreshStyles = () =>{
+        let stylesAux = stylesDesktop;
+        Object.keys(stylesMobile).forEach(key=>{
+            stylesAux = {...stylesAux,[key]:{...stylesDesktop[key], ...mobile[key]}}
+        })
+        setStyles(stylesAux)
+    }
+    
+    useLayoutEffect(()=>{
+        refreshStyles();
+    },[isMobile])
     // const styles = {...stylesDesktop, ...mobile}
     // const styles = Object.assign({},stylesDesktop,mobile)
     return styles

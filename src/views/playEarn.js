@@ -1,29 +1,30 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import ScrollContainer from 'react-indiana-drag-scroll';
+import useJSS from '../components/useJSS';
 
 
 
-const PlayEarnView = ({ style }) => {
-    
-
-
+const PlayEarnView = ({ style, isMobile }) => {
+    const styles = useJSS({isMobile, stylesDesktop, stylesMobile})
     return (
-        <div style={style}>
+        <div id="playEarnView" style={style}>
             {/* <StaticImage src="../images/grid-bg.png" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background} width={1378} height={862}/> */}
-            <StaticImage src="../images/grid-bg.jpg" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background} height={862} />
+            {isMobile? null : <StaticImage src="../images/grid-bg.jpg" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background} height={862} />}
             {/* <StaticImage src="../images/grid-bg.png" layout="fixed" style={styles.backgroundContainer} imgStyle={styles.background} /> */}
             <div style={styles.container}>
                 <div style={styles.content}>
-                    <div>
+                    <div style={styles.header}>
                         <div style={styles.title}>Play & earn meets dev & earn</div>
                         <div style={styles.subtitle}>The better you play, the better your earnings</div>
                         <div style={styles.listText}>1. Submit your game.</div>
                         <div style={styles.listText}>2. We host it.</div>
                         <div style={styles.listText}>3. You get paid.</div>
                     </div>
-                    <StaticImage src="../images/dev-2-earn.png" layout="fixed" style={styles.devEarn} width={498} height={422} />
-                    {/* <StaticImage src="../images/dev-2-earn.png" layout="fixed" height={422} /> */}
+                    <div style={styles.devEarn} >
+                        <StaticImage src="../images/dev-2-earn.png" layout="fullWidth"/>
+                    </div>
+                    {/* <StaticImage src="../images/dev-2-earn.png" layout="fixed" style={styles.devEarn} width={498} height={422} /> */}
                 </div>
                 <div style={styles.footer}>
                     <div style={styles.footerTitle}>ROADMAP</div>
@@ -115,8 +116,55 @@ const PlayEarnView = ({ style }) => {
 
 export default PlayEarnView
 
+const stylesMobile = {
+    container:{
+       
+    },
+    subtitle:{
+        width:"340px"
+    },
+    listText:{
+        width:"160px",
+        position:"relative",
+        top:"250px"
+    },
+    header:{
+        display:"flex",
+        width:"100vw",
+        flexDirection:"column",
+        alignItems:"center",
+        justifyContent:"center"
+    },
+    title:{
+        fontSize:"30px",
+        width:"200px",
+    },
+    container:{
+        height:"1044px",
+        display:"flex",
+        flexDirection:"column",
+        justifyContent:"center",
+        width:"100vw",
+        flexWrap:"wrap",
+        top:"0px"
+    },
+    content:{
+        flexDirection:"column",
+        alignItems:"center",
+        justifyContent:"space-between"
+    },
+    devEarn: {
+        position:"relative",
+        height: "245px",
+        width: "280px",
+        top:"-100px"
+    },
+    footer:{
+        paddingTop:"60px"
+    }
+}
 
-const styles = {
+const stylesDesktop = {
     backgroundContainer: {
         width: "100vw",
         display: "flex",
@@ -132,7 +180,8 @@ const styles = {
     devEarn: {
         left: "0px",
         top: "5px",
-        height: "422px"
+        height: "422px",
+        width: "498px",
     },
     container: {
         position: "absolute",

@@ -229,7 +229,7 @@ const HomeView = ({style,isMobile}) => {
   
   return (
 
-    <div style={style}>
+    <div  id="home" style={style}>
       {/* <StaticImage src="../images/landscape-bg.jpg" layout={isMobile ? "constrained" : "fullWidth"} style={styles.background} /> */}
       {/* <StaticImage src="../images/landscape-bg.jpg" layout="constrained" objectFit="fill" style={styles.background} imgStyle={styles.backgroundImg} /> */}
       <LandscapeBackground/>
@@ -240,12 +240,14 @@ const HomeView = ({style,isMobile}) => {
         {isMobile ? null :
         <div style={styles.links}>
           <button style={styles.playButton}><div style={styles.playText}>Play</div></button>
-          <div style={styles.discord}>
+          <div style={styles.discord} >
             <StaticImage src="../images/discord.svg" width="24" height="24" />
           </div>
-          <div style={styles.twitter}>
-            <StaticImage src="../images/twitter.svg" width="24" height="24" />
-          </div>
+          <a href="https://twitter.com/NFArcade" target="_blank">
+            <div style={styles.twitter}>
+              <StaticImage src="../images/twitter.svg" width="24" height="24" />
+            </div>
+          </a>
         </div>}
       </div>
       <div style={styles.contentContainer}>
