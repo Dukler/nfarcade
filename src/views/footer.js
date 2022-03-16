@@ -59,10 +59,14 @@ const styles = {
 }
 
 const FooterView = ({style}) => {
-    const faq = document.getElementById("faqView");
-    const playEarn= document.getElementById("playEarnView");
-    const home = document.getElementById("home");
-
+    // const faq = document.getElementById("faqView");
+    // const playEarn= document.getElementById("playEarnView");
+    // const home = document.getElementById("home");
+    const [state, setState] = React.useState();
+    const scrollTo = (id)=>{
+        if (document !== "undefined") document.getElementById(id).scrollIntoView()
+    }
+    
 
     return (
         <div style={style}>
@@ -70,9 +74,9 @@ const FooterView = ({style}) => {
             <div  style={styles.content}>
                 <StaticImage src="../images/nfa-logo 5.png" width={279} height={109} layout="fixed"/>
                 <div style={styles.links}>
-                    <div style={styles.linkText} onClick={()=>faq.scrollIntoView()}>FAQ</div>
-                    <div style={styles.linkText} onClick={()=>playEarn.scrollIntoView()}>ROADMAP</div>
-                    <div style={styles.linkText} onClick={()=>home.scrollIntoView()}>PLAY</div>
+                    <div style={styles.linkText} onClick={()=>scrollTo("faqView")}>FAQ</div>
+                    <div style={styles.linkText} onClick={()=>scrollTo("playEarnView")}>ROADMAP</div>
+                    <div style={styles.linkText} onClick={()=>scrollTo("home")}>PLAY</div>
                 </div>
                 <div style={styles.socials}>
                     
