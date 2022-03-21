@@ -54,15 +54,10 @@ const styles = {
         width:"40%",
         position:"relative",
         top:"50px"
-
     }
 }
 
 const FooterView = ({style}) => {
-    // const faq = document.getElementById("faqView");
-    // const playEarn= document.getElementById("playEarnView");
-    // const home = document.getElementById("home");
-    const [state, setState] = React.useState();
     const scrollTo = (id)=>{
         if (document !== "undefined") document.getElementById(id).scrollIntoView()
     }
