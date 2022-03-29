@@ -17,6 +17,7 @@ const stylesDesktop = {
     // flexWrap:"wrap",
     // height:"950px",
     position:"relative",
+    background: "#1E012B"
     // overflowY:"scroll"
     // height:"3500px"
   },

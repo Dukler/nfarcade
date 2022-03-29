@@ -2,6 +2,7 @@ import * as React from "react"
 import { StaticImage } from 'gatsby-plugin-image';
 import useJSS from "../components/useJSS";
 import LandscapeBackground from "../components/LandscapeBackground";
+import Unity, { UnityContext } from "react-unity-webgl";
 
 // styles
 const stylesDesktop = {
@@ -239,7 +240,7 @@ const HomeView = ({style,isMobile}) => {
         </div>
         {isMobile ? null :
         <div style={styles.links}>
-          <button style={styles.playButton}><div style={styles.playText}>Play</div></button>
+          {/* <button style={styles.playButton}><div style={styles.playText}>Play</div></button> */}
           <div style={styles.discord} >
             <StaticImage src="../images/discord.svg" width="24" height="24" />
           </div>
