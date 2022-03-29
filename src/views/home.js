@@ -2,15 +2,16 @@ import * as React from "react"
 import { StaticImage } from 'gatsby-plugin-image';
 import useJSS from "../components/useJSS";
 import LandscapeBackground from "../components/LandscapeBackground";
+import useWeb3 from "../hooks/useWeb3";
 
 // styles
 const stylesDesktop = {
   background: {
-     width: '100vw',
-     height:"750px",
+    width: '100vw',
+    height: "750px",
   },
-  backgroundImg:{width:"100vw", height:"750px"},
-  logo: { width: '279', height: '109', minWidth:'279' },
+  backgroundImg: { width: "100vw", height: "750px" },
+  logo: { width: '279', height: '109', minWidth: '279' },
   header: {
     display: "flex",
     flexDirection: "row",
@@ -189,71 +190,77 @@ const stylesDesktop = {
   }
 }
 const stylesMobile = {
-  contentTitle:{
+  contentTitle: {
     fontSize: "36px",
-    width:"250px",
-    height:"64px"
+    width: "250px",
+    height: "64px"
   },
-  contentText:{
+  contentText: {
     fontSize: "24px",
-    width:"150px",
-    height:"24px"
+    width: "150px",
+    height: "24px"
   },
-  startPlayingButton:{
-    width:"133px"
+  startPlayingButton: {
+    width: "133px"
   },
-  header:{
-    justifyContent:"center",
-    left:"",
-    top:"0px",
-    width:"100%"
+  header: {
+    justifyContent: "center",
+    left: "",
+    top: "0px",
+    width: "100%"
   },
-  background:{
+  background: {
     // width:"400px"
-    height:"474px"
+    height: "474px"
   },
-  backgroundImg:{
+  backgroundImg: {
     // width:"400px"
-    height:"474px"
+    height: "474px"
   },
-  contentContainer:{
-    top:"150px",
-    position:"absolute",
-    height:"202px"
+  contentContainer: {
+    top: "150px",
+    position: "absolute",
+    height: "202px"
   }
 }
 
 
-const HomeView = ({style,isMobile}) => {
-  const styles = useJSS({stylesDesktop,stylesMobile,isMobile});
-  
+const HomeView = ({ style, isMobile }) => {
+  const styles = useJSS({ stylesDesktop, stylesMobile, isMobile });
+  const { readAccount, signer } = useWeb3({ onMountConnect: true });
+  const sign = async () => {
+    let signature = await signer.signMessage("Login to NFArcade")
+    console.log(signature)
+  }
+
   return (
 
-    <div  id="home" style={style}>
+    <div id="home" style={style}>
+
       {/* <StaticImage src="../images/landscape-bg.jpg" layout={isMobile ? "constrained" : "fullWidth"} style={styles.background} /> */}
       {/* <StaticImage src="../images/landscape-bg.jpg" layout="constrained" objectFit="fill" style={styles.background} imgStyle={styles.backgroundImg} /> */}
-      <LandscapeBackground/>
+      <LandscapeBackground />
       <div style={styles.header}>
         <div style={styles.logo}>
-          <StaticImage src="../images/nfa-logo 5.png" layout="fixed" styles={styles}/>
+          <StaticImage src="../images/nfa-logo 5.png" layout="fixed" styles={styles} />
         </div>
         {isMobile ? null :
-        <div style={styles.links}>
-          <button style={styles.playButton}><div style={styles.playText}>Play</div></button>
-          <div style={styles.discord} >
-            <StaticImage src="../images/discord.svg" width="24" height="24" />
-          </div>
-          <a href="https://twitter.com/NFArcade" target="_blank">
-            <div style={styles.twitter}>
-              <StaticImage src="../images/twitter.svg" width="24" height="24" />
+          <div style={styles.links}>
+            <button onClick={(e) => sign()} style={styles.playButton}><div style={styles.playText}>Play</div></button>
+            <div style={styles.discord} >
+              <StaticImage src="../images/discord.svg" width="24" height="24" />
             </div>
-          </a>
-        </div>}
+            <a href="https://twitter.com/NFArcade" target="_blank">
+              <div style={styles.twitter}>
+                <StaticImage src="../images/twitter.svg" width="24" height="24" />
+              </div>
+            </a>
+          </div>}
       </div>
       <div style={styles.contentContainer}>
-          <div style={styles.contentTitle}>Reinventing the arcade experience</div>
-          <div style={styles.contentText}>For the metaverse</div>
-          <button style={styles.startPlayingButton}><div style={styles.startPlayingText}>Start playing</div></button>
+        <div style={styles.contentTitle}>Reinventing the arcade experience</div>
+        <div style={styles.contentText}>For the metaverse</div>
+        <button style={styles.startPlayingButton}><div style={styles.startPlayingText}>Start playing</div></button>
       </div>
     </div>
   )
