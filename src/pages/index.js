@@ -10,6 +10,7 @@ import FooterView from "../views/footer";
 import HomeView from "../views/home";
 import PlayEarnView from "../views/playEarn";
 
+
 const stylesDesktop = {
   main:{
     // display:"flex",
@@ -33,6 +34,7 @@ const stylesMobile={
   playEarn:{height:"1044px"}
 }
 
+
 // markup
 const IndexPage = () => {
   // const [isSSDisabled, setIsSSDisabled] = useState(true);
@@ -46,10 +48,12 @@ const IndexPage = () => {
 
   return (
     <>
-      {/* {noBlock ? <Helmet>
-        <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet" media="screen"/>
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" media="screen"/>
-      </Helmet> : null} */}
+      <Helmet>
+        {/* <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet" media="screen"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" media="screen"/> */}
+        <title>Non Fungible Arcade</title>
+      </Helmet>
+      
       {/* <div style={styles.footer} onClick={onMouseDown} */}
       <div style={styles.main}>
         <HomeView style={styles.home} isMobile={isMobile}/>

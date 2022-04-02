@@ -2,13 +2,13 @@ import * as React from "react"
 import { StaticImage } from 'gatsby-plugin-image';
 import useJSS from "../components/useJSS";
 import LandscapeBackground from "../components/LandscapeBackground";
-import Unity, { UnityContext } from "react-unity-webgl";
+import { navigate } from "gatsby"
 
 // styles
 const stylesDesktop = {
   background: {
-     width: '100vw',
-     height:"750px",
+    width: '100vw',
+    height:"750px",
   },
   backgroundImg:{width:"100vw", height:"750px"},
   logo: { width: '279', height: '109', minWidth:'279' },
@@ -227,6 +227,9 @@ const stylesMobile = {
 
 const HomeView = ({style,isMobile}) => {
   const styles = useJSS({stylesDesktop,stylesMobile,isMobile});
+  const startPlaying = () =>{
+    navigate("/arcade-room/")
+  }
   
   return (
 
@@ -254,7 +257,7 @@ const HomeView = ({style,isMobile}) => {
       <div style={styles.contentContainer}>
           <div style={styles.contentTitle}>Reinventing the arcade experience</div>
           <div style={styles.contentText}>For the metaverse</div>
-          <button style={styles.startPlayingButton}><div style={styles.startPlayingText}>Start playing</div></button>
+          <button onClick={(e)=>startPlaying(e)} style={styles.startPlayingButton}><div style={styles.startPlayingText}>Start playing</div></button>
       </div>
     </div>
   )

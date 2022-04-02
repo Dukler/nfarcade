@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-      title: `new`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `NFArcade`,
+    siteUrl: `https://www.nonfunginblearcade.com`
   },
   plugins: ["gatsby-plugin-styled-components", "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sharp", "gatsby-transformer-sharp","gatsby-plugin-web-font-loader", {
       resolve: 'gatsby-source-filesystem',
@@ -33,5 +33,15 @@ module.exports = {
         }
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'Non Fungible Arcade',
+        short_name: 'NFArcade',
+        start_url: '/',
+        display: 'standalone',
+        icon: 'src/images/nfa-icon.png',
+      },
+    }
   ]
 };
